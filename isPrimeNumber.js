@@ -13,25 +13,43 @@ function isPrimeNumber(number) {
 
 var assert = require("assert");
 describe("isPrimeNumber", function() {
-    it("1 is not primary", function() {
+    it("is not primary when 1", function() {
         assert.equal(false, isPrimeNumber(1));
     });
-    it("2 is primary", function() {
+
+    it("is primary when 2", function() {
         assert.equal(true, isPrimeNumber(2));
     });
-    it("3 is primary", function() {
+    
+    it("is primary when 3", function() {
         assert.equal(true, isPrimeNumber(3));
     });
-    it("19 is primary", function() {
+    
+    it("is primary when 19", function() {
         assert.equal(true, isPrimeNumber(19));
     });
-    it("100 is not primary", function() {
+    
+    it("is not primary when 100", function() {
         assert.equal(false, isPrimeNumber(100));
     });
-    it("101 is primary", function() {
+    
+    it("is primary when 101", function() {
         assert.equal(true, isPrimeNumber(101));
     });
-    it("121 is not primary", function() {
+    
+    it("is not primary when 121", function() {
         assert.equal(false, isPrimeNumber(121));
+    });
+    
+    it("throws when 0", function() {
+        assert.throws(function() { 
+            isPrimeNumber(0);
+        });
+    });
+
+    it("throws when -1", function() {
+        assert.throws(function() { 
+            isPrimeNumber(-1);
+        });
     });
 });
