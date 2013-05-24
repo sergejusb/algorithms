@@ -44,6 +44,7 @@ function pow(number, exp) {
 }
 
 var assert = require("assert");
+
 describe("pow_naive()", function() {
     it("is 1 when 0^0", function() {
         assert.equal(1, pow_naive(0, 0));
@@ -85,6 +86,7 @@ describe("pow_naive()", function() {
         assert.equal(-97.65625, pow_naive(-2.5, 5));
     });
 });
+
 describe("pow()", function() {
     it("is 1 when 0^0", function() {
         assert.equal(1, pow(0, 0));
