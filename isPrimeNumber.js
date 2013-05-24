@@ -12,7 +12,7 @@ function isPrimeNumber(number) {
 }
 
 var assert = require("assert");
-describe("isPrimeNumber", function() {
+describe("isPrimeNumber()", function() {
     it("is not primary when 1", function() {
         assert.equal(false, isPrimeNumber(1));
     });
