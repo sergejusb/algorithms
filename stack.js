@@ -34,7 +34,7 @@ var Stack = (function () {
         var length = 0;
         var current = this.head;
 
-        while (current != null) {
+        while(current != null) {
             length++;
             current = current.next;
         }
@@ -45,14 +45,16 @@ var Stack = (function () {
     return Stack;
 })();
 
-var StackTester = (function () {
-    function StackTester() {
+var FixedArrayStack
+
+var StackTesterRunner = (function () {
+    function StackTesterRunner() {
     }
 
-    StackTester.prototype.runTests = function(stackFactory) {
+    StackTesterRunner.prototype.runTests = function(name, stackFactory) {
         var assert = require("assert");
 
-        describe("Stack", function() {
+        describe(name, function() {
             var stack = null;
 
             beforeEach(function() {
@@ -74,7 +76,7 @@ var StackTester = (function () {
             });
 
             describe("pop()", function() {
-                it("can pop item form non-empty list", function() {
+                it("can pop item from non-empty list", function() {
                     stack.push(1);
                     assert.equal(1, stack.pop());
                 })
@@ -130,8 +132,8 @@ var StackTester = (function () {
         });
     }
 
-    return StackTester;
+    return StackTesterRunner;
 })();
 
-var stackTester = new StackTester();
-stackTester.runTests(function() { return new Stack(); });
+var testRunner = new StackTesterRunner();
+testRunner.runTests("Stack (linked list)", function() { return new Stack(); });

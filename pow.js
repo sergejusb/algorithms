@@ -43,88 +43,59 @@ function pow(number, exp) {
     return positive ? result : 1 / result;
 }
 
-var assert = require("assert");
+var PowTestRunner = (function() {
+    function PowTestRunner() {
+    }
 
-describe("pow_naive()", function() {
-    it("is 1 when 0^0", function() {
-        assert.equal(1, pow_naive(0, 0));
-    });
+    PowTestRunner.prototype.runTests = function(powFunction) {
+        var assert = require("assert");
 
-    it("is 0 when 0^1", function() {
-        assert.equal(0, pow_naive(0, 1));
-    });
+        describe(powFunction.name + "()", function() {
+            it("is 1 when 0^0", function() {
+                assert.equal(1, powFunction(0, 0));
+            });
 
-    it("is 1 when 1^2", function() {
-        assert.equal(1, pow_naive(1, 2));
-    });
+            it("is 0 when 0^1", function() {
+                assert.equal(0, powFunction(0, 1));
+            });
 
-    it("is 4 when 2^2", function() {
-        assert.equal(4, pow_naive(2, 2));
-    });
+            it("is 1 when 1^2", function() {
+                assert.equal(1, powFunction(1, 2));
+            });
 
-    it("is 8 when 2^3", function() {
-        assert.equal(8, pow_naive(2, 3));
-    });
+            it("is 4 when 2^2", function() {
+                assert.equal(4, powFunction(2, 2));
+            });
 
-    it("is 97.65625 when 2.5^5", function() {
-        assert.equal(97.65625, pow_naive(2.5, 5));
-    });
+            it("is 8 when 2^3", function() {
+                assert.equal(8, powFunction(2, 3));
+            });
 
-    it("is 0.04 when 5^-2", function() {
-        assert.equal(0.04, pow_naive(5, -2));
-    });
+            it("is 97.65625 when 2.5^5", function() {
+                assert.equal(97.65625, powFunction(2.5, 5));
+            });
 
-    it("is 4 when -2^2", function() {
-        assert.equal(4, pow_naive(-2, 2));
-    });
+            it("is 0.04 when 5^-2", function() {
+                assert.equal(0.04, powFunction(5, -2));
+            });
 
-    it("is -8 when -2^3", function() {
-        assert.equal(-8, pow_naive(-2, 3));
-    });
+            it("is 4 when -2^2", function() {
+                assert.equal(4, powFunction(-2, 2));
+            });
 
-    it("is -97.65625 when -2.5^5", function() {
-        assert.equal(-97.65625, pow_naive(-2.5, 5));
-    });
-});
+            it("is -8 when -2^3", function() {
+                assert.equal(-8, powFunction(-2, 3));
+            });
 
-describe("pow()", function() {
-    it("is 1 when 0^0", function() {
-        assert.equal(1, pow(0, 0));
-    });
+            it("is -97.65625 when -2.5^5", function() {
+                assert.equal(-97.65625, powFunction(-2.5, 5));
+            });
+        });
+    }
 
-    it("is 0 when 0^1", function() {
-        assert.equal(0, pow(0, 1));
-    });
+    return PowTestRunner;
+})();
 
-    it("is 1 when 1^2", function() {
-        assert.equal(1, pow(1, 2));
-    });
-
-    it("is 4 when 2^2", function() {
-        assert.equal(4, pow(2, 2));
-    });
-
-    it("is 8 when 2^3", function() {
-        assert.equal(8, pow(2, 3));
-    });
-
-    it("is 97.65625 when 2.5^5", function() {
-        assert.equal(97.65625, pow(2.5, 5));
-    });
-
-    it("is 0.04 when 5^-2", function() {
-        assert.equal(0.04, pow(5, -2));
-    });
-
-    it("is 4 when -2^2", function() {
-        assert.equal(4, pow(-2, 2));
-    });
-
-    it("is -8 when -2^3", function() {
-        assert.equal(-8, pow(-2, 3));
-    });
-
-    it("is -97.65625 when -2.5^5", function() {
-        assert.equal(-97.65625, pow(-2.5, 5));
-    });
-});
+var testRunner = new PowTestRunner();
+testRunner.runTests(pow_naive);
+testRunner.runTests(pow);
