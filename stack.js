@@ -18,7 +18,7 @@ var Stack = (function () {
 
     Stack.prototype.pop = function() {
         var node = this.head;
-        if (node == null) {
+        if (node === null) {
             throw new Error("stack is empty");
         }
 
@@ -34,7 +34,7 @@ var Stack = (function () {
         var length = 0;
         var current = this.head;
 
-        while(current != null) {
+        while(current !== null) {
             length++;
             current = current.next;
         }
