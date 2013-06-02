@@ -56,6 +56,10 @@ var SinglyLinkedList = (function () {
         return length;
     }
 
+    SinglyLinkedList.prototype.isEmpty = function() {
+        return this.head.next === null;
+    }
+
     SinglyLinkedList.prototype.reverse = function() {
         var previous = null;
         var current = this.head;
@@ -196,16 +200,27 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is 3 when contains 3 items", function() {
-                    list.add(1,0);
-                    list.add(2,1);
-                    list.add(3,2);
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
                     assert.equal(3, list.length());
                 });
 
                 it("can call multiple times", function() {
-                    list.add(1,0);
+                    list.add(1, 0);
                     list.length();
                     assert.equal(1, list.length());
+                });
+            });
+
+            describe("isEmpty()", function() {
+                it("is true when empty", function() {
+                    assert.equal(true, list.isEmpty());
+                });
+
+                it("is false when at least 1 item exists", function() {
+                    list.add(1, 0);
+                    assert.equal(false, list.isEmpty());
                 });
             });
 
@@ -215,14 +230,14 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when <1>", function() {
-                    list.add(1,0);
+                    list.add(1, 0);
                     assertMany([1], list.reverse().toArray());
                 });
 
                 it("is <3,2,1> when <1,2,3>", function() {
-                    list.add(1,0);
-                    list.add(2,1);
-                    list.add(3,2);
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
                     assertMany([3,2,1], list.reverse().toArray());
                 });
             });
@@ -233,14 +248,14 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when <1>", function() {
-                    list.add(1,0);
+                    list.add(1, 0);
                     assertMany([1], list.copy().toArray());
                 });
 
                 it("is <1,2,3> when <1,2,3>", function() {
-                    list.add(1,0);
-                    list.add(2,1);
-                    list.add(3,2);
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
                     assertMany([1,2,3], list.copy().toArray());
                 });
             });
@@ -256,35 +271,35 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when empty list merged with <1>", function() {
-                    anotherList.add(1,0);
+                    anotherList.add(1, 0);
                     assertMany([1], list.merge(anotherList).toArray());
                 });
 
                 it("is <1> when <1> merged with empty list", function() {
-                    list.add(1,0);
+                    list.add(1, 0);
                     assertMany([1], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2> when <1> merged with <2>", function() {
-                    list.add(1,0);
-                    anotherList.add(2,0);
+                    list.add(1, 0);
+                    anotherList.add(2, 0);
                     assertMany([1,2], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2,3,4> when <1,2> merged with <3,4>", function() {
-                    list.add(1,0);
-                    list.add(2,1);
-                    anotherList.add(3,0);
-                    anotherList.add(4,1);
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    anotherList.add(3, 0);
+                    anotherList.add(4, 1);
                     assertMany([1,2,3,4], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2,3,4,5> when <1,2,3> merged with <4,5>", function() {
-                    list.add(1,0);
-                    list.add(2,1);
-                    list.add(3,2);
-                    anotherList.add(4,0);
-                    anotherList.add(5,1);
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
+                    anotherList.add(4, 0);
+                    anotherList.add(5, 1);
                     assertMany([1,2,3,4,5], list.merge(anotherList).toArray());
                 });
             });
