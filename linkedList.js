@@ -44,6 +44,27 @@ var SinglyLinkedList = (function () {
         return this;
     }
 
+    SinglyLinkedList.prototype.addLast = function(item, position) {
+        var current = this.head;
+        var next = current.next;
+        var index = 0;
+
+        if (position < 0) {
+            throw new Error("position must be positive number");
+        }
+
+        while (next !== null) {
+            if (index++ >= position) {
+                current = current.next;
+            }
+            next = next.next;
+        }
+
+        current.next = new Node(item, current.next);
+
+        return this;
+    }
+
     SinglyLinkedList.prototype.length = function() {
         var length = 0;
         var next = this.head.next;
@@ -160,6 +181,12 @@ var LinkedListTestRunner = (function () {
             });
 
             describe("add()", function() {
+                it("throws when position is negative", function() {
+                    assert.throws(function() {
+                        list.add(1, -1);
+                    });
+                });
+
                 it("is <1> when 1 added to empty list at position 0", function() {
                     list.add(1, 0);
                     assertMany([1], list.toArray());
@@ -182,10 +209,56 @@ var LinkedListTestRunner = (function () {
                     assertMany([1,2], list.toArray());
                 });
 
+                it("is <1,2> when 2 added to <1> at position 2", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    assertMany([1,2], list.toArray());
+                });
+            });
+
+            describe("addLast()", function() {
                 it("throws when position is negative", function() {
                     assert.throws(function() {
-                        list.add(1, -1);
+                        list.addLast(1, -1);
                     });
+                });
+
+                it("is <1> when 1 added to empty list at position 0 from the end", function() {
+                    list.addLast(1, 0);
+                    assertMany([1], list.toArray());
+                });
+
+                it("is <1> when 1 added to empty list at position 1 from the end", function() {
+                    list.addLast(1, 1);
+                    assertMany([1], list.toArray());
+                });
+
+                it("is <1,2,3> when 3 added to <1,2> at position 0 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.addLast(3, 0);
+                    assertMany([1,2,3], list.toArray());
+                });
+
+                it("is <1,3,2> when 3 added to <1,2> at position 1 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.addLast(3, 1);
+                    assertMany([1,3,2], list.toArray());
+                });
+
+                it("is <3,1,2> when 3 added to <1,2> at position 2 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.addLast(3, 2);
+                    assertMany([3,1,2], list.toArray());
+                });
+
+                it("is <3,1,2> when 3 added to <1,2> at position 3 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.addLast(3, 3);
+                    assertMany([3,1,2], list.toArray());
                 });
             });
             
@@ -308,6 +381,8 @@ var LinkedListTestRunner = (function () {
 
     return LinkedListTestRunner;
 })();
+
+module.exports.SinglyLinkedList = SinglyLinkedList;
 
 var testRunner = new LinkedListTestRunner();
 testRunner.runTests("Linked list (singly)", function() { return new SinglyLinkedList(); });
