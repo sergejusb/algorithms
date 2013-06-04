@@ -1,51 +1,34 @@
-var Node = (function () {
-    function Node(item, node) {
-        this.item = item;
-        this.next = node;
-    }
-    
-    return Node;
-})();
-
 var Stack = (function () {
     function Stack() {
-        this.head = null;
+        var linkedList = require('./linkedList.js'); 
+        this.list = new linkedList.SinglyLinkedList();
     }
 
     Stack.prototype.push = function(item) {
-        this.head = new Node(item, this.head);
+        this.list.add(item, 0);
     }
 
     Stack.prototype.pop = function() {
-        var node = this.head;
-        if (node === null) {
-            throw new Error("stack is empty");
+        if (this.list.isEmpty()) {
+            throw new Error("can not pop when stack is empty, check isEmpty() before pop()");
         }
 
-        this.head = this.head.next;
-        return node.item; 
+        return this.list.remove(0);
     }
 
     Stack.prototype.isEmpty = function() {
-        return this.head === null;
+        return this.list.isEmpty();
     }
 
     Stack.prototype.length = function() {
-        var length = 0;
-        var current = this.head;
-
-        while(current !== null) {
-            length++;
-            current = current.next;
-        }
-
-        return length;
+        return this.list.length();
     }
 
     return Stack;
 })();
 
-var FixedArrayStack
+module.exports.Stack = Stack;
+
 
 var StackTesterRunner = (function () {
     function StackTesterRunner() {
@@ -64,14 +47,14 @@ var StackTesterRunner = (function () {
             describe("push()", function() {
                 it("can push item to empty list", function() {
                     stack.push(1);
-                    assert.equal(1, stack.head.item);
+                    assert.equal(1, stack.list.head.next.item);
                 })
 
                 it("can push fifo", function() {
                     stack.push(1);
                     stack.push(2);
-                    assert.equal(2, stack.head.item);
-                    assert.equal(1, stack.head.next.item);
+                    assert.equal(2, stack.list.head.next.item);
+                    assert.equal(1, stack.list.head.next.next.item);
                 });
             });
 
@@ -111,22 +94,11 @@ var StackTesterRunner = (function () {
                     assert.equal(0, stack.length());
                 });
 
-                it("is 1 when contains 1 item", function() {
-                    stack.push(1);
-                    assert.equal(1, stack.length());
-                });
-
                 it("is 3 when contains 3 items", function() {
                     stack.push(1);
                     stack.push(2);
                     stack.push(3);
                     assert.equal(3, stack.length());
-                });
-
-                it("can call multiple times", function() {
-                    stack.push(1);
-                    stack.length();
-                    assert.equal(1, stack.length());
                 });
             });
         });
