@@ -3,7 +3,7 @@
     "description": "Playground for learning various algorithms",
     "author": "Sergejus Barinovas <seriog@gmail.com>",
     "scripts": {
-        "test": "node_modules/.bin/mocha *.js --reporter spec"
+        "test": "node_modules/.bin/mocha */*.js --reporter spec"
     },
     "repository" : { 
         "type" : "git",
