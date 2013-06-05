@@ -50,7 +50,7 @@ var StackTesterRunner = (function () {
                     assert.equal(1, stack.list.head.next.item);
                 })
 
-                it("can push fifo", function() {
+                it("can push lifo", function() {
                     stack.push(1);
                     stack.push(2);
                     assert.equal(2, stack.list.head.next.item);
@@ -64,7 +64,7 @@ var StackTesterRunner = (function () {
                     assert.equal(1, stack.pop());
                 })
 
-                it("can pop fifo", function() {
+                it("can pop lifo", function() {
                     stack.push(1);
                     stack.push(2);
                     assert.equal(2, stack.pop());
