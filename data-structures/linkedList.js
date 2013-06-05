@@ -45,6 +45,7 @@ var SinglyLinkedList = (function () {
     }
 
     SinglyLinkedList.prototype.remove = function(position) {
+        var previous = null;
         var current = this.head;
         var next = current.next;
         var index = 0;
@@ -64,7 +65,7 @@ var SinglyLinkedList = (function () {
         }
     }
 
-    SinglyLinkedList.prototype.addToEnd = function(item, position) {
+    SinglyLinkedList.prototype.addFromEnd = function(item, position) {
         var current = this.head;
         var next = current.next;
         var index = 0;
@@ -83,6 +84,30 @@ var SinglyLinkedList = (function () {
         current.next = new Node(item, current.next);
 
         return this;
+    }
+
+    SinglyLinkedList.prototype.removeFromEnd = function(position) {
+        var previous = null;
+        var current = this.head;
+        var next = current.next;
+        var index = 0;
+
+        if (position < 0) {
+            throw new Error("position must be positive number");
+        }
+
+        while (next !== null) {
+            if (index++ >= position) {
+                previous = current;
+                current = current.next;
+            }
+            next = next.next;
+        }
+
+        if (previous !== null) {
+            previous.next = current.next;
+            return current.item;
+        }
     }
 
     SinglyLinkedList.prototype.length = function() {
@@ -299,49 +324,119 @@ var LinkedListTestRunner = (function () {
                 });
             });
 
-            describe("addToEnd()", function() {
+            describe("addFromEnd()", function() {
                 it("throws when position is negative", function() {
                     assert.throws(function() {
-                        list.addToEnd(1, -1);
+                        list.addFromEnd(1, -1);
                     });
                 });
 
                 it("is <1> when 1 added to empty list at position 0 from the end", function() {
-                    list.addToEnd(1, 0);
+                    list.addFromEnd(1, 0);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <1> when 1 added to empty list at position 1 from the end", function() {
-                    list.addToEnd(1, 1);
+                    list.addFromEnd(1, 1);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <1,2,3> when 3 added to <1,2> at position 0 from the end", function() {
                     list.add(1, 0);
                     list.add(2, 1);
-                    list.addToEnd(3, 0);
+                    list.addFromEnd(3, 0);
                     assertMany([1,2,3], list.toArray());
                 });
 
                 it("is <1,3,2> when 3 added to <1,2> at position 1 from the end", function() {
                     list.add(1, 0);
                     list.add(2, 1);
-                    list.addToEnd(3, 1);
+                    list.addFromEnd(3, 1);
                     assertMany([1,3,2], list.toArray());
                 });
 
                 it("is <3,1,2> when 3 added to <1,2> at position 2 from the end", function() {
                     list.add(1, 0);
                     list.add(2, 1);
-                    list.addToEnd(3, 2);
+                    list.addFromEnd(3, 2);
                     assertMany([3,1,2], list.toArray());
                 });
 
                 it("is <3,1,2> when 3 added to <1,2> at position 3 from the end", function() {
                     list.add(1, 0);
                     list.add(2, 1);
-                    list.addToEnd(3, 3);
+                    list.addFromEnd(3, 3);
                     assertMany([3,1,2], list.toArray());
+                });
+            });
+
+            describe("removeFromEnd()", function() {
+                it("throws when position is negative", function() {
+                    assert.throws(function() {
+                        list.removeFromEnd(-1);
+                    });
+                });
+
+                it("is empty list when from empty list removed at position 0 from the end", function() {
+                    list.removeFromEnd(0);
+                    assertMany([], list.toArray());
+                });
+
+                it("is empty list when from <1> removed at position 0 from the end", function() {
+                    list.add(1, 0);
+                    list.removeFromEnd(0);
+                    assertMany([], list.toArray());
+                });
+
+                it("is <1> when from <1> removed at position 1 from the end", function() {
+                    list.add(1, 0);
+                    list.removeFromEnd(1);
+                    assertMany([1], list.toArray());
+                });
+
+                it("is <1,2> when from <1,2,3> removed at position 0 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
+                    list.removeFromEnd(0);
+                    assertMany([1,2], list.toArray());
+                });
+
+                it("is <1,3> when from <1,2,3> removed at position 1 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
+                    list.removeFromEnd(1);
+                    assertMany([1,3], list.toArray());
+                });
+
+                it("is <2,3> when from <1,2,3> removed at position 2 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
+                    list.removeFromEnd(2);
+                    assertMany([2,3], list.toArray());
+                });
+
+                it("is <1,2,3> when from <1,2,3> removed at position 3 from the end", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    list.add(3, 2);
+                    list.removeFromEnd(3);
+                    assertMany([1,2,3], list.toArray());
+                });
+
+                it("returns correct removed item", function() {
+                    list.add(1, 0);
+                    list.add(2, 1);
+                    var item = list.removeFromEnd(1);
+                    assert.equal(1, item);
+                });
+
+                it("returns undefined when non-existing position specified", function() {
+                    list.add(1, 0);
+                    var item = list.removeFromEnd(1);
+                    assert.equal(undefined, item);
                 });
             });
             
