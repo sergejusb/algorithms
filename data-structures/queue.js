@@ -6,7 +6,7 @@ var Queue = (function () {
     }
 
     Queue.prototype.enqueue = function(item) {
-        this.list.add(item, 0);
+        this.list.addFromStart(item, 0);
     }
 
     Queue.prototype.dequeue = function() {

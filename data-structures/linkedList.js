@@ -18,7 +18,7 @@ var SinglyLinkedList = (function () {
         return array;
     }
 
-    SinglyLinkedList.prototype.add = function(item, position) {
+    SinglyLinkedList.prototype.addFromStart = function(item, position) {
         var current = this.head;
         var next = current.next;
         var index = 0;
@@ -37,7 +37,7 @@ var SinglyLinkedList = (function () {
         return this;
     }
 
-    SinglyLinkedList.prototype.remove = function(position) {
+    SinglyLinkedList.prototype.removeFromStart = function(position) {
         var previous = null;
         var current = this.head;
         var next = current.next;

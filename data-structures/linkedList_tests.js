@@ -39,108 +39,108 @@ var LinkedListTestRunner = (function () {
                 });            
             });
 
-            describe("add()", function() {
+            describe("addFromStart()", function() {
                 it("throws when position is negative", function() {
                     assert.throws(function() {
-                        list.add(1, -1);
+                        list.addFromStart(1, -1);
                     });
                 });
 
                 it("is <1> when 1 added to empty list at position 0", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <1> when 1 added to empty list at position 1", function() {
-                    list.add(1, 1);
+                    list.addFromStart(1, 1);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <2,1> when 2 added to <1> at position 0", function() {
-                    list.add(1, 0);
-                    list.add(2, 0);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 0);
                     assertMany([2,1], list.toArray());
                 });
 
                 it("is <1,2> when 2 added to <1> at position 1", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     assertMany([1,2], list.toArray());
                 });
 
                 it("is <1,2> when 2 added to <1> at position 2", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     assertMany([1,2], list.toArray());
                 });
             });
 
-            describe("remove()", function() {
+            describe("removeFromStart()", function() {
                 it("throws when position is negative", function() {
                     assert.throws(function() {
-                        list.remove(-1);
+                        list.removeFromStart(-1);
                     });
                 });
 
                 it("is empty list when from empty list removed at position 0", function() {
-                    list.remove(0);
+                    list.removeFromStart(0);
                     assertMany([], list.toArray());
                 });
 
                 it("is empty list when from <1> removed at position 0", function() {
-                    list.add(1, 0);
-                    list.remove(0);
+                    list.addFromStart(1, 0);
+                    list.removeFromStart(0);
                     assertMany([], list.toArray());
                 });
 
                 it("is <1> when from <1> removed at position 1", function() {
-                    list.add(1, 0);
-                    list.remove(1);
+                    list.addFromStart(1, 0);
+                    list.removeFromStart(1);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <2,3> when from <1,2,3> removed at position 0", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
-                    list.remove(0);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
+                    list.removeFromStart(0);
                     assertMany([2,3], list.toArray());
                 });
 
                 it("is <1,3> when from <1,2,3> removed at position 1", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
-                    list.remove(1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
+                    list.removeFromStart(1);
                     assertMany([1,3], list.toArray());
                 });
 
                 it("is <1,2> when from <1,2,3> removed at position 2", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
-                    list.remove(2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
+                    list.removeFromStart(2);
                     assertMany([1,2], list.toArray());
                 });
 
                 it("is <1,2,3> when from <1,2,3> removed at position 3", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
-                    list.remove(3);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
+                    list.removeFromStart(3);
                     assertMany([1,2,3], list.toArray());
                 });
 
                 it("returns correct removed item", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    var item = list.remove(1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    var item = list.removeFromStart(1);
                     assert.equal(2, item);
                 });
 
                 it("returns undefined when non-existing position specified", function() {
-                    list.add(1, 0);
-                    var item = list.remove(1);
+                    list.addFromStart(1, 0);
+                    var item = list.removeFromStart(1);
                     assert.equal(undefined, item);
                 });
             });
@@ -163,29 +163,29 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1,2,3> when 3 added to <1,2> at position 0 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     list.addFromEnd(3, 0);
                     assertMany([1,2,3], list.toArray());
                 });
 
                 it("is <1,3,2> when 3 added to <1,2> at position 1 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     list.addFromEnd(3, 1);
                     assertMany([1,3,2], list.toArray());
                 });
 
                 it("is <3,1,2> when 3 added to <1,2> at position 2 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     list.addFromEnd(3, 2);
                     assertMany([3,1,2], list.toArray());
                 });
 
                 it("is <3,1,2> when 3 added to <1,2> at position 3 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     list.addFromEnd(3, 3);
                     assertMany([3,1,2], list.toArray());
                 });
@@ -204,58 +204,58 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is empty list when from <1> removed at position 0 from the end", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     list.removeFromEnd(0);
                     assertMany([], list.toArray());
                 });
 
                 it("is <1> when from <1> removed at position 1 from the end", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     list.removeFromEnd(1);
                     assertMany([1], list.toArray());
                 });
 
                 it("is <1,2> when from <1,2,3> removed at position 0 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     list.removeFromEnd(0);
                     assertMany([1,2], list.toArray());
                 });
 
                 it("is <1,3> when from <1,2,3> removed at position 1 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     list.removeFromEnd(1);
                     assertMany([1,3], list.toArray());
                 });
 
                 it("is <2,3> when from <1,2,3> removed at position 2 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     list.removeFromEnd(2);
                     assertMany([2,3], list.toArray());
                 });
 
                 it("is <1,2,3> when from <1,2,3> removed at position 3 from the end", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     list.removeFromEnd(3);
                     assertMany([1,2,3], list.toArray());
                 });
 
                 it("returns correct removed item", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
                     var item = list.removeFromEnd(1);
                     assert.equal(1, item);
                 });
 
                 it("returns undefined when non-existing position specified", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     var item = list.removeFromEnd(1);
                     assert.equal(undefined, item);
                 });
@@ -267,19 +267,19 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is 1 when contains 1 item", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assert.equal(1, list.length());
                 });
 
                 it("is 3 when contains 3 items", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     assert.equal(3, list.length());
                 });
 
                 it("can call multiple times", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     list.length();
                     assert.equal(1, list.length());
                 });
@@ -291,7 +291,7 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is false when at least 1 item exists", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assert.equal(false, list.isEmpty());
                 });
             });
@@ -302,14 +302,14 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when <1>", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assertMany([1], list.reverse().toArray());
                 });
 
                 it("is <3,2,1> when <1,2,3>", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     assertMany([3,2,1], list.reverse().toArray());
                 });
             });
@@ -320,14 +320,14 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when <1>", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assertMany([1], list.copy().toArray());
                 });
 
                 it("is <1,2,3> when <1,2,3>", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
                     assertMany([1,2,3], list.copy().toArray());
                 });
             });
@@ -343,35 +343,35 @@ var LinkedListTestRunner = (function () {
                 });
 
                 it("is <1> when empty list merged with <1>", function() {
-                    anotherList.add(1, 0);
+                    anotherList.addFromStart(1, 0);
                     assertMany([1], list.merge(anotherList).toArray());
                 });
 
                 it("is <1> when <1> merged with empty list", function() {
-                    list.add(1, 0);
+                    list.addFromStart(1, 0);
                     assertMany([1], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2> when <1> merged with <2>", function() {
-                    list.add(1, 0);
-                    anotherList.add(2, 0);
+                    list.addFromStart(1, 0);
+                    anotherList.addFromStart(2, 0);
                     assertMany([1,2], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2,3,4> when <1,2> merged with <3,4>", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    anotherList.add(3, 0);
-                    anotherList.add(4, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    anotherList.addFromStart(3, 0);
+                    anotherList.addFromStart(4, 1);
                     assertMany([1,2,3,4], list.merge(anotherList).toArray());
                 });
 
                 it("is <1,2,3,4,5> when <1,2,3> merged with <4,5>", function() {
-                    list.add(1, 0);
-                    list.add(2, 1);
-                    list.add(3, 2);
-                    anotherList.add(4, 0);
-                    anotherList.add(5, 1);
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    list.addFromStart(3, 2);
+                    anotherList.addFromStart(4, 0);
+                    anotherList.addFromStart(5, 1);
                     assertMany([1,2,3,4,5], list.merge(anotherList).toArray());
                 });
             });

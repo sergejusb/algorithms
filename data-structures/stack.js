@@ -6,7 +6,7 @@ var Stack = (function () {
     }
 
     Stack.prototype.push = function(item) {
-        this.list.add(item, 0);
+        this.list.addFromStart(item, 0);
     }
 
     Stack.prototype.pop = function() {
@@ -14,7 +14,7 @@ var Stack = (function () {
             throw new Error("can not pop when stack is empty, check isEmpty() before pop()");
         }
 
-        return this.list.remove(0);
+        return this.list.removeFromStart(0);
     }
 
     Stack.prototype.isEmpty = function() {
