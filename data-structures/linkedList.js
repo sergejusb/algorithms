@@ -48,7 +48,7 @@ var SinglyLinkedList = (function () {
 
     SinglyLinkedList.prototype.addBefore = function(node, item) {
         var current = this.head;
-        var next = this.head.next;
+        var next = current.next;
 
         if (node == null) {
             throw new Error("node can not be null");
@@ -96,8 +96,6 @@ var SinglyLinkedList = (function () {
         }
 
         current.next = new Node(item, next);
-
-        return this;
     }
 
     SinglyLinkedList.prototype.addFromEnd = function(item, position) {
@@ -117,8 +115,24 @@ var SinglyLinkedList = (function () {
         }
 
         current.next = new Node(item, current.next);
+    }
 
-        return this;
+    SinglyLinkedList.prototype.remove = function(node) {
+        var current = this.head;
+        var next = current.next;
+
+        if (node == null) {
+            throw new Error("node can not be null");
+        }
+
+        while (next !== null) {
+            if (next === node) {
+                current.next = next.next;
+            }
+
+            current = next;
+            next = next.next;
+        }
     }
 
     SinglyLinkedList.prototype.removeFromStart = function(position) {

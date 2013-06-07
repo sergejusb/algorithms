@@ -223,6 +223,37 @@ var LinkedListTestRunner = (function () {
                 });
             });
 
+            describe("remove()", function() {
+                it("throws when node is null", function() {
+                    assert.throws(function() {
+                        list.remove(null, 1);
+                    });
+                });
+
+                it("is empty list when 1 removed from <1>", function() {
+                    list.addFromStart(1, 0);
+                    var node = list.find(1);
+                    list.remove(node);
+                    assertMany([], list.toArray());
+                });
+
+                it("is <2> when 1 removed from <1,2>", function() {
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    var node = list.find(1);
+                    list.remove(node);
+                    assertMany([2], list.toArray());
+                });
+
+                it("is <1> when 2 removed from <1,2>", function() {
+                    list.addFromStart(1, 0);
+                    list.addFromStart(2, 1);
+                    var node = list.find(2);
+                    list.remove(node);
+                    assertMany([1], list.toArray());
+                });
+            })
+
             describe("removeFromStart()", function() {
                 it("throws when position is negative", function() {
                     assert.throws(function() {
