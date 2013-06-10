@@ -48,6 +48,24 @@ var StackTesterRunner = (function () {
                 });
             });
 
+            describe("peak()", function() {
+                it("is nulll when empty", function() {
+                    assert.equal(null, stack.peak());
+                });
+
+                it("is 1 when <1>", function() {
+                    stack.push(1);
+                    assert.equal(1, stack.peak());
+                });
+
+                it("is 3 when <3,2,1>", function() {
+                    stack.push(1);
+                    stack.push(1);
+                    stack.push(3);
+                    assert.equal(3, stack.peak());
+                });
+            });
+
             describe("isEmpty()", function() {
                 it("is true when empty", function() {
                     assert.equal(true, stack.isEmpty());
@@ -64,7 +82,7 @@ var StackTesterRunner = (function () {
                     assert.equal(0, stack.length());
                 });
 
-                it("is 3 when contains 3 items", function() {
+                it("is 3 when <3,2,1>", function() {
                     stack.push(1);
                     stack.push(2);
                     stack.push(3);

@@ -17,6 +17,11 @@ var Stack = (function () {
         return this.list.removeFromStart(0);
     }
 
+    Stack.prototype.peak = function() {
+        var node = this.list.head.next;
+        return node != null ? node.item : null;
+    }
+
     Stack.prototype.isEmpty = function() {
         return this.list.isEmpty();
     }
