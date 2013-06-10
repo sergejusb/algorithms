@@ -48,21 +48,21 @@ var StackTesterRunner = (function () {
                 });
             });
 
-            describe("peak()", function() {
+            describe("peek()", function() {
                 it("is nulll when empty", function() {
-                    assert.equal(null, stack.peak());
+                    assert.equal(null, stack.peek());
                 });
 
                 it("is 1 when <1>", function() {
                     stack.push(1);
-                    assert.equal(1, stack.peak());
+                    assert.equal(1, stack.peek());
                 });
 
                 it("is 3 when <3,2,1>", function() {
                     stack.push(1);
                     stack.push(1);
                     stack.push(3);
-                    assert.equal(3, stack.peak());
+                    assert.equal(3, stack.peek());
                 });
             });
 
