@@ -15,21 +15,21 @@ var QueueTesterRunner = (function () {
             });
 
             describe("enqueue()", function() {
-                it("can enqueue item to empty list", function() {
+                it("can enqueue item to empty queue", function() {
                     queue.enqueue(1);
-                    assert.equal(1, queue.list.head.next.item);
+                    assert.equal(1, queue.head.next.item);
                 })
 
                 it("can enqueue fifo", function() {
                     queue.enqueue(1);
                     queue.enqueue(2);
-                    assert.equal(1, queue.list.head.next.item);
-                    assert.equal(2, queue.list.head.next.next.item);
+                    assert.equal(1, queue.head.next.item);
+                    assert.equal(2, queue.head.next.next.item);
                 });
             });
 
             describe("dequeue()", function() {
-                it("can dequeue item from non-empty list", function() {
+                it("can dequeue item from non-empty queue", function() {
                     queue.enqueue(1);
                     assert.equal(1, queue.dequeue());
                 })

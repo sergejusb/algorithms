@@ -1,12 +1,12 @@
-var LinkedList = require('./linkedList.js');
+var Node = require('./node.js');
 
 var Stack = (function () {
     function Stack() {
-        this.list = new LinkedList();
+        this.head = new Node(undefined, null);
     }
 
     Stack.prototype.push = function(item) {
-        this.list.addFromStart(item, 0);
+        this.head.next = new Node(item, this.head.next);
     }
 
     Stack.prototype.pop = function() {
@@ -14,20 +14,30 @@ var Stack = (function () {
             throw new Error("can not pop when stack is empty, check isEmpty() before pop()");
         }
 
-        return this.list.removeFromStart(0);
+        var first = this.head.next;
+        this.head.next = first.next;
+        return first.item;
     }
 
     Stack.prototype.peek = function() {
-        var node = this.list.head.next;
-        return node != null ? node.item : null;
+        var first = this.head.next;
+        return first != null ? first.item : null;
     }
 
     Stack.prototype.isEmpty = function() {
-        return this.list.isEmpty();
+        return this.head.next === null;
     }
 
     Stack.prototype.length = function() {
-        return this.list.length();
+        var length = 0;
+        var next = this.head.next;
+
+        while(next !== null) {
+            length++;
+            next = next.next;
+        }
+
+        return length;
     }
 
     return Stack;

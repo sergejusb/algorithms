@@ -15,21 +15,21 @@ var StackTesterRunner = (function () {
             });
 
             describe("push()", function() {
-                it("can push item to empty list", function() {
+                it("can push item to empty stack", function() {
                     stack.push(1);
-                    assert.equal(1, stack.list.head.next.item);
+                    assert.equal(1, stack.head.next.item);
                 })
 
                 it("can push lifo", function() {
                     stack.push(1);
                     stack.push(2);
-                    assert.equal(2, stack.list.head.next.item);
-                    assert.equal(1, stack.list.head.next.next.item);
+                    assert.equal(2, stack.head.next.item);
+                    assert.equal(1, stack.head.next.next.item);
                 });
             });
 
             describe("pop()", function() {
-                it("can pop item from non-empty list", function() {
+                it("can pop item from non-empty stack", function() {
                     stack.push(1);
                     assert.equal(1, stack.pop());
                 })
