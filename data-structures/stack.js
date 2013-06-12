@@ -10,7 +10,7 @@ var Stack = (function () {
     }
 
     Stack.prototype.pop = function() {
-        if (this.list.isEmpty()) {
+        if (this.isEmpty()) {
             throw new Error("can not pop when stack is empty, check isEmpty() before pop()");
         }
 

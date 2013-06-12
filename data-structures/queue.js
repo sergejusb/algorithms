@@ -1,20 +1,28 @@
-var LinkedList = require('./linkedList.js');
+var Node = require('./node.js');
+var LinkedList = require('./LinkedList.js');
 
 var Queue = (function () {
     function Queue() {
         this.list = new LinkedList();
+        this.last = this.list.head;
     }
 
     Queue.prototype.enqueue = function(item) {
-        this.list.addFromStart(item, 0);
+        this.last.next = new Node(item, null);
+        this.last = this.last.next;
     }
 
     Queue.prototype.dequeue = function() {
-        if (this.list.isEmpty()) {
+        if (this.isEmpty()) {
             throw new Error("can not dequeue when queue is empty, check isEmpty() before dequeue()");
         }
 
-        return this.list.removeFromEnd(0);
+        return this.list.removeFromStart(0);
+    }
+
+    Queue.prototype.peek = function() {
+        var node = this.list.head.next;
+        return node != null ? node.item : null;
     }
 
     Queue.prototype.isEmpty = function() {

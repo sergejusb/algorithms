@@ -60,7 +60,7 @@ var StackTesterRunner = (function () {
 
                 it("is 3 when <3,2,1>", function() {
                     stack.push(1);
-                    stack.push(1);
+                    stack.push(2);
                     stack.push(3);
                     assert.equal(3, stack.peek());
                 });

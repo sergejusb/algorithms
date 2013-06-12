@@ -23,8 +23,8 @@ var QueueTesterRunner = (function () {
                 it("can enqueue fifo", function() {
                     queue.enqueue(1);
                     queue.enqueue(2);
-                    assert.equal(2, queue.list.head.next.item);
-                    assert.equal(1, queue.list.head.next.next.item);
+                    assert.equal(1, queue.list.head.next.item);
+                    assert.equal(2, queue.list.head.next.next.item);
                 });
             });
 
@@ -45,6 +45,24 @@ var QueueTesterRunner = (function () {
                     assert.throws(function() {
                         queue.dequeue();
                     });
+                });
+            });
+
+            describe("peek()", function() {
+                it("is nulll when empty", function() {
+                    assert.equal(null, queue.peek());
+                });
+
+                it("is 1 when <1>", function() {
+                    queue.enqueue(1);
+                    assert.equal(1, queue.peek());
+                });
+
+                it("is 3 when <1,2,3>", function() {
+                    queue.enqueue(1);
+                    queue.enqueue(2);
+                    queue.enqueue(3);
+                    assert.equal(1, queue.peek());
                 });
             });
 
