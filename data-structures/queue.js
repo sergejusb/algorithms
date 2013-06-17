@@ -4,11 +4,13 @@ var Queue = (function () {
     function Queue() {
         this.head = new Node(undefined, null);
         this.last = this.head;
+        this.count = 0;
     }
 
     Queue.prototype.enqueue = function(item) {
         this.last.next = new Node(item, null);
         this.last = this.last.next;
+        this.count++;
     }
 
     Queue.prototype.dequeue = function() {
@@ -18,6 +20,7 @@ var Queue = (function () {
 
         var first = this.head.next;
         this.head.next = first.next;
+        this.count--;
         return first.item;
     }
 
@@ -31,15 +34,7 @@ var Queue = (function () {
     }
 
     Queue.prototype.length = function() {
-        var length = 0;
-        var next = this.head.next;
-
-        while(next !== null) {
-            length++;
-            next = next.next;
-        }
-
-        return length;
+        return this.count;
     }
 
     return Queue;

@@ -3,10 +3,12 @@ var Node = require('./node.js');
 var Stack = (function () {
     function Stack() {
         this.head = new Node(undefined, null);
+        this.count = 0;
     }
 
     Stack.prototype.push = function(item) {
         this.head.next = new Node(item, this.head.next);
+        this.count++;
     }
 
     Stack.prototype.pop = function() {
@@ -16,6 +18,7 @@ var Stack = (function () {
 
         var first = this.head.next;
         this.head.next = first.next;
+        this.count--;
         return first.item;
     }
 
@@ -29,15 +32,7 @@ var Stack = (function () {
     }
 
     Stack.prototype.length = function() {
-        var length = 0;
-        var next = this.head.next;
-
-        while(next !== null) {
-            length++;
-            next = next.next;
-        }
-
-        return length;
+        return this.count;
     }
 
     return Stack;
