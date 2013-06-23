@@ -1,4 +1,5 @@
 var Stack = require('./stack.js');
+var IntStack = require('./stack_array.js');
 
 var StackTesterRunner = (function () {
     function StackTesterRunner() {
@@ -17,14 +18,14 @@ var StackTesterRunner = (function () {
             describe("push()", function() {
                 it("can push item to empty stack", function() {
                     stack.push(1);
-                    assert.equal(1, stack.head.next.item);
+                    assert.equal(1, stack.pop());
                 })
 
                 it("can push lifo", function() {
                     stack.push(1);
                     stack.push(2);
-                    assert.equal(2, stack.head.next.item);
-                    assert.equal(1, stack.head.next.next.item);
+                    assert.equal(2, stack.pop());
+                    assert.equal(1, stack.pop());
                 });
             });
 
@@ -97,3 +98,4 @@ var StackTesterRunner = (function () {
 
 var testRunner = new StackTesterRunner();
 testRunner.runTests("Stack (linked list)", function() { return new Stack(); });
+testRunner.runTests("Stack (array)", function() { return new IntStack(); });
