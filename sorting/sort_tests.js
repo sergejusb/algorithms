@@ -44,3 +44,4 @@ var SortTestRunner = (function() {
 
 var testRunner = new SortTestRunner();
 testRunner.runTests(selectionSort);
+testRunner.runTests(insertionSort);
