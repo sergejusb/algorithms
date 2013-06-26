@@ -1,5 +1,6 @@
 var selectionSort = require('./selectionSort.js');
 var insertionSort = require('./insertionSort.js');
+var shellSort = require('./shellSort.js');
 
 var SortTestRunner = (function() {
     function SortTestRunner() {
@@ -45,3 +46,4 @@ var SortTestRunner = (function() {
 var testRunner = new SortTestRunner();
 testRunner.runTests(selectionSort);
 testRunner.runTests(insertionSort);
+testRunner.runTests(shellSort);
