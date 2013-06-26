@@ -1,6 +1,7 @@
 var selectionSort = require('./selectionSort.js');
 var insertionSort = require('./insertionSort.js');
 var shellSort = require('./shellSort.js');
+var mergeSort = require('./mergeSort.js');
 
 var SortTestRunner = (function() {
     function SortTestRunner() {
@@ -37,6 +38,10 @@ var SortTestRunner = (function() {
             it("can sort negative numbers", function() {
                 assertMany([-2,-1,0,0,1,2], sortFunction([1,0,-2,2,-1,0]));
             });
+
+            it("can sort sorted numbers", function() {
+                assertMany([-2,-1,0,1,2], sortFunction([-2,-1,0,1,2]));
+            });
         });
     }
 
@@ -47,3 +52,4 @@ var testRunner = new SortTestRunner();
 testRunner.runTests(selectionSort);
 testRunner.runTests(insertionSort);
 testRunner.runTests(shellSort);
+testRunner.runTests(mergeSort);
