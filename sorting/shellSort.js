@@ -3,7 +3,6 @@ function shellSort(numbers) {
     while (h < numbers.length / 3) {
         h = 3 * h + 1;
     }
-    console.log("h=" + h);
 
     for (; h >= 1; h = --h / 3) {
         for (var i = 0; i < numbers.length; i += h) {
