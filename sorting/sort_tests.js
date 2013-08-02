@@ -1,4 +1,5 @@
 var selectionSort = require('./selectionSort.js');
+var bubbleSort = require('./bubbleSort.js');
 var insertionSort = require('./insertionSort.js');
 var shellSort = require('./shellSort.js');
 var mergeSort = require('./mergeSort.js');
@@ -50,6 +51,7 @@ var SortTestRunner = (function() {
 
 var testRunner = new SortTestRunner();
 testRunner.runTests(selectionSort);
+testRunner.runTests(bubbleSort);
 testRunner.runTests(insertionSort);
 testRunner.runTests(shellSort);
 testRunner.runTests(mergeSort);
