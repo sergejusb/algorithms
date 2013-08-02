@@ -7,5 +7,13 @@ Math algorithms
 
 Data structures
 * [linked list](https://github.com/sergejusb/algorithms/blob/master/data-structures/linkedList.js)
-* [stack](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack.js)
-* [queue](https://github.com/sergejusb/algorithms/blob/master/data-structures/queue.js)
+* [stack (linked list based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack.js)
+* [stack (dynamic array based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack_array.js)
+* [queue (linked list based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/queue.js)
+
+Sorting algorithms
+* [selection sort](https://github.com/sergejusb/algorithms/blob/master/sorting/selectionSort.js)
+* [bubble sort](https://github.com/sergejusb/algorithms/blob/master/sorting/bubbleSort.js)
+* [insertion sort](https://github.com/sergejusb/algorithms/blob/master/sorting/insertionSort.js)
+* [shell sort](https://github.com/sergejusb/algorithms/blob/master/sorting/shellSort.js)
+* [merge sort](https://github.com/sergejusb/algorithms/blob/master/sorting/mergeSort.js)
