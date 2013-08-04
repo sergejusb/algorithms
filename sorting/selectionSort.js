@@ -5,11 +5,11 @@ function selectionSort(numbers) {
             if (numbers[n] < numbers[min]) {
                 min = n;
             }
-        };
+        }
         var number = numbers[i];
         numbers[i] = numbers[min];
         numbers[min] = number;
-    };
+    }
 
     return numbers;
 }

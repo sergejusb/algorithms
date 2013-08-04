@@ -10,8 +10,8 @@ function shellSort(numbers) {
                 var number = numbers[n];
                 numbers[n] = numbers[n-h];
                 numbers[n-h] = number;
-            };
-        };
+            }
+        }
     }
 
     return numbers;
