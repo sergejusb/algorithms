@@ -6,8 +6,8 @@ function bubbleSort(numbers) {
                 numbers[n] = numbers[n+1];
                 numbers[n+1] = number;
             }
-        };
-    };
+        }
+    }
 
     return numbers;
 }
