@@ -9,7 +9,7 @@ var Stack = (function () {
     Stack.prototype.push = function(item) {
         this.head.next = new Node(item, this.head.next);
         this.count++;
-    }
+    };
 
     Stack.prototype.pop = function() {
         if (this.isEmpty()) {
@@ -20,20 +20,20 @@ var Stack = (function () {
         this.head.next = first.next;
         this.count--;
         return first.item;
-    }
+    };
 
     Stack.prototype.peek = function() {
         var first = this.head.next;
-        return first != null ? first.item : null;
-    }
+        return first !== null ? first.item : null;
+    };
 
     Stack.prototype.isEmpty = function() {
         return this.head.next === null;
-    }
+    };
 
     Stack.prototype.length = function() {
         return this.count;
-    }
+    };
 
     return Stack;
 })();

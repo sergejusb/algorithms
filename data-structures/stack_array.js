@@ -11,7 +11,7 @@ var Stack = (function () {
             this.resize(this.items.length * 2);
         }
         this.items[this.count++] = item;
-    }
+    };
 
     Stack.prototype.pop = function() {
         if (this.isEmpty()) {
@@ -23,27 +23,27 @@ var Stack = (function () {
             this.resize(this.items.length / 2);
         }
         return item;
-    }
+    };
 
     Stack.prototype.peek = function() {
         return this.count === 0 ? null : this.items[this.count - 1];
-    }
+    };
 
     Stack.prototype.isEmpty = function() {
         return this.count === 0;
-    }
+    };
 
     Stack.prototype.length = function() {
         return this.count;
-    }
+    };
 
     Stack.prototype.resize = function(capacity) {
         var items = new Int32Array(capacity);
         for (var i = 0; i < this.count; i++) {
             items[i] = this.items[i];
-        };
+        }
         this.items = items;
-    }
+    };
 
     return Stack;
 })();

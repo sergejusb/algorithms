@@ -16,11 +16,11 @@ var SinglyLinkedList = (function () {
         }
 
         return array;
-    }
+    };
 
     SinglyLinkedList.prototype.isEmpty = function() {
         return this.head.next === null;
-    }
+    };
 
     SinglyLinkedList.prototype.length = function() {
         var length = 0;
@@ -32,7 +32,7 @@ var SinglyLinkedList = (function () {
         }
 
         return length;
-    }
+    };
 
     SinglyLinkedList.prototype.find = function(item) {
         var next = this.head.next;
@@ -44,13 +44,13 @@ var SinglyLinkedList = (function () {
 
             next = next.next;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.addBefore = function(node, item) {
         var current = this.head;
         var next = current.next;
 
-        if (node == null) {
+        if (node === null) {
             throw new Error("node can not be null");
         }
 
@@ -62,12 +62,12 @@ var SinglyLinkedList = (function () {
             current = next;
             next = next.next;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.addAfter = function(node, item) {
         var next = this.head.next;
 
-        if (node == null) {
+        if (node === null) {
             throw new Error("node can not be null");
         }
 
@@ -79,7 +79,7 @@ var SinglyLinkedList = (function () {
 
             next = next.next;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.addFromStart = function(item, position) {
         var current = this.head;
@@ -96,7 +96,7 @@ var SinglyLinkedList = (function () {
         }
 
         current.next = new Node(item, next);
-    }
+    };
 
     SinglyLinkedList.prototype.addFromEnd = function(item, position) {
         var current = this.head;
@@ -115,13 +115,13 @@ var SinglyLinkedList = (function () {
         }
 
         current.next = new Node(item, current.next);
-    }
+    };
 
     SinglyLinkedList.prototype.remove = function(node) {
         var current = this.head;
         var next = current.next;
 
-        if (node == null) {
+        if (node === null) {
             throw new Error("node can not be null");
         }
 
@@ -133,7 +133,7 @@ var SinglyLinkedList = (function () {
             current = next;
             next = next.next;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.removeFromStart = function(position) {
         var previous = null;
@@ -154,7 +154,7 @@ var SinglyLinkedList = (function () {
             current = next;
             next = next.next;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.removeFromEnd = function(position) {
         var previous = null;
@@ -178,7 +178,7 @@ var SinglyLinkedList = (function () {
             previous.next = current.next;
             return current.item;
         }
-    }
+    };
 
     SinglyLinkedList.prototype.reverse = function() {
         var previous = null;
@@ -198,7 +198,7 @@ var SinglyLinkedList = (function () {
         }
 
         return this;
-    }
+    };
 
     SinglyLinkedList.prototype.copy = function() {
         var list = new SinglyLinkedList();
@@ -212,7 +212,7 @@ var SinglyLinkedList = (function () {
         }
 
         return list;
-    }
+    };
 
     SinglyLinkedList.prototype.merge = function(list) {
         var current = this.head;
@@ -225,7 +225,7 @@ var SinglyLinkedList = (function () {
         current.next = list.head.next;
 
         return this;
-    }
+    };
 
     return SinglyLinkedList;
 })();

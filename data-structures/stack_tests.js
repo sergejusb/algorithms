@@ -19,7 +19,7 @@ var StackTesterRunner = (function () {
                 it("can push item to empty stack", function() {
                     stack.push(1);
                     assert.equal(1, stack.pop());
-                })
+                });
 
                 it("can push lifo", function() {
                     stack.push(1);
@@ -33,7 +33,7 @@ var StackTesterRunner = (function () {
                 it("can pop item from non-empty stack", function() {
                     stack.push(1);
                     assert.equal(1, stack.pop());
-                })
+                });
 
                 it("can pop lifo", function() {
                     stack.push(1);
@@ -91,7 +91,7 @@ var StackTesterRunner = (function () {
                 });
             });
         });
-    }
+    };
 
     return StackTesterRunner;
 })();

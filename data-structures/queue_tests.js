@@ -18,7 +18,7 @@ var QueueTesterRunner = (function () {
                 it("can enqueue item to empty queue", function() {
                     queue.enqueue(1);
                     assert.equal(1, queue.head.next.item);
-                })
+                });
 
                 it("can enqueue fifo", function() {
                     queue.enqueue(1);
@@ -32,7 +32,7 @@ var QueueTesterRunner = (function () {
                 it("can dequeue item from non-empty queue", function() {
                     queue.enqueue(1);
                     assert.equal(1, queue.dequeue());
-                })
+                });
 
                 it("can dequeue fifo", function() {
                     queue.enqueue(1);
@@ -90,7 +90,7 @@ var QueueTesterRunner = (function () {
                 });
             });
         });
-    }
+    };
 
     return QueueTesterRunner;
 })();

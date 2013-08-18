@@ -12,7 +12,7 @@ function pow(number, exp) {
     var result = 1;
     while (exp >= 1)
     {
-        if (exp % 2 != 0)
+        if (exp % 2 !== 0)
         {
             result *= number;
         }

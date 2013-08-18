@@ -49,7 +49,7 @@ var PowTestRunner = (function() {
                 assert.equal(-97.65625, powFunction(-2.5, 5));
             });
         });
-    }
+    };
 
     return PowTestRunner;
 })();

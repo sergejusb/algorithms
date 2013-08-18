@@ -11,10 +11,10 @@ var LinkedListTestRunner = (function () {
         var assertMany = function(expected, actual) {
             for (var i = 0; i < actual.length; i++) {
                 assert.equal(expected[i], actual[i]);
-             };
+             }
 
             assert.equal(expected.length, actual.length);
-        }
+        };
 
         describe(name, function() {
             var list = null;
@@ -36,7 +36,7 @@ var LinkedListTestRunner = (function () {
                 it("is [1,2,3] when list has <1,2,3>", function() {
                     list.head = new Node(undefined, new Node(1, new Node(2, new Node(3, null))));
                     assertMany([1,2,3], list.toArray());
-                });            
+                });
             });
 
             describe("isEmpty()", function() {

@@ -11,7 +11,7 @@ var Queue = (function () {
         this.last.next = new Node(item, null);
         this.last = this.last.next;
         this.count++;
-    }
+    };
 
     Queue.prototype.dequeue = function() {
         if (this.isEmpty()) {
@@ -22,20 +22,20 @@ var Queue = (function () {
         this.head.next = first.next;
         this.count--;
         return first.item;
-    }
+    };
 
     Queue.prototype.peek = function() {
         var first = this.head.next;
-        return first != null ? first.item : null;
-    }
+        return first !== null ? first.item : null;
+    };
 
     Queue.prototype.isEmpty = function() {
         return this.head.next === null;
-    }
+    };
 
     Queue.prototype.length = function() {
         return this.count;
-    }
+    };
 
     return Queue;
 })();

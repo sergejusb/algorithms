@@ -31,13 +31,13 @@ describe("isPrimeNumber()", function() {
     });
     
     it("throws when 0", function() {
-        assert.throws(function() { 
+        assert.throws(function() {
             isPrimeNumber(0);
         });
     });
 
     it("throws when -1", function() {
-        assert.throws(function() { 
+        assert.throws(function() {
             isPrimeNumber(-1);
         });
     });
