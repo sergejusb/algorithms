@@ -32,8 +32,9 @@ function sort(numbers, lo, hi) {
     sort(numbers, index + 1, hi);
 }
 
-module.exports = quickSort;
 function quickSort(numbers) {
     sort(numbers, 0, numbers.length - 1);
     return numbers;
 }
+
+module.exports = quickSort;
