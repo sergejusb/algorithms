@@ -17,3 +17,5 @@ Sorting algorithms
 * [insertion sort](https://github.com/sergejusb/algorithms/blob/master/sorting/insertionSort.js)
 * [shell sort](https://github.com/sergejusb/algorithms/blob/master/sorting/shellSort.js)
 * [merge sort](https://github.com/sergejusb/algorithms/blob/master/sorting/mergeSort.js)
+* [quick sort](https://github.com/sergejusb/algorithms/blob/master/sorting/quickSort.js)
+* [quick sort (3-way partition)](https://github.com/sergejusb/algorithms/blob/master/sorting/quickSort3.js)
