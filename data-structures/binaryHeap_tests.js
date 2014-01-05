@@ -39,6 +39,24 @@ var BinaryHeapTestRunner = (function () {
                     binaryHeap.insert(2);
                     assertMany([2,0,1], binaryHeap.toArray());
                 });
+
+                it("is [1,0,1] when inserted 1, 0 and then 1", function() {
+                    binaryHeap.insert(1);
+                    binaryHeap.insert(0);
+                    binaryHeap.insert(1);
+                    assertMany([1,0,1], binaryHeap.toArray());
+                });
+
+                it("is [6,3,5,0,2,1,4] when inserted 0, 1, 2, 3, 4, 5 and then 6", function() {
+                    binaryHeap.insert(0);
+                    binaryHeap.insert(1);
+                    binaryHeap.insert(2);
+                    binaryHeap.insert(3);
+                    binaryHeap.insert(4);
+                    binaryHeap.insert(5);
+                    binaryHeap.insert(6);
+                    assertMany([6,3,5,0,2,1,4], binaryHeap.toArray());
+                });
             });
 
             describe("delete()", function() {
@@ -110,6 +128,24 @@ var BinaryHeapTestRunner = (function () {
                     binaryHeap.insert(1);
                     binaryHeap.insert(0);
                     assertMany([0,2,1], binaryHeap.toArray());
+                });
+
+                it("is [0,1,0] when inserted 0, 1 and then 0", function() {
+                    binaryHeap.insert(0);
+                    binaryHeap.insert(1);
+                    binaryHeap.insert(0);
+                    assertMany([0,1,0], binaryHeap.toArray());
+                });
+
+                it("is [0,3,1,6,4,5,2] when inserted 6, 5, 4, 3, 2, 1 and then 0", function() {
+                    binaryHeap.insert(6);
+                    binaryHeap.insert(5);
+                    binaryHeap.insert(4);
+                    binaryHeap.insert(3);
+                    binaryHeap.insert(2);
+                    binaryHeap.insert(1);
+                    binaryHeap.insert(0);
+                    assertMany([0,3,1,6,4,5,2], binaryHeap.toArray());
                 });
             });
 

@@ -45,7 +45,6 @@ var BinaryHeap = (function() {
         /* ensure binary heap invariant */
         var parent = 1;
         var child = parent << 1;
-
         while (child <= this.count) {
             if (child < this.count) {
                 child = this.predicate(this.items[child], this.items[child + 1]) ? child : child + 1;
