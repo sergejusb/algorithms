@@ -10,6 +10,7 @@ Data structures
 * [stack (linked list based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack.js)
 * [stack (dynamic array based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack_array.js)
 * [queue (linked list based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/queue.js)
+* [binary heap](https://github.com/sergejusb/algorithms/blob/master/data-structures/binaryHeap.js)
 
 Sorting algorithms
 * [selection sort](https://github.com/sergejusb/algorithms/blob/master/sorting/selectionSort.js)
