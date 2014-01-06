@@ -1,6 +1,8 @@
 Playground for learning various algorithms
 ==========================================
 
+[![Build Status](https://travis-ci.org/sergejusb/algorithms.png?branch=master)](https://travis-ci.org/sergejusb/algorithms)
+
 Math algorithms
 * [isPrimeNumber](https://github.com/sergejusb/algorithms/blob/master/math/isPrimeNumber.js)
 * [pow](https://github.com/sergejusb/algorithms/blob/master/math/pow.js)
