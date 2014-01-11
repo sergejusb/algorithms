@@ -1,7 +1,5 @@
-Playground for learning various algorithms
-==========================================
-
-[![Build Status](https://travis-ci.org/sergejusb/algorithms.png?branch=master)](https://travis-ci.org/sergejusb/algorithms)
+Playground for learning various algorithms [![Build Status](https://travis-ci.org/sergejusb/algorithms.png?branch=master)](https://travis-ci.org/sergejusb/algorithms)
+-------------------------
 
 Math algorithms
 * [isPrimeNumber](https://github.com/sergejusb/algorithms/blob/master/math/isPrimeNumber.js)
@@ -13,6 +11,7 @@ Data structures
 * [stack (dynamic array based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/stack_array.js)
 * [queue (linked list based)](https://github.com/sergejusb/algorithms/blob/master/data-structures/queue.js)
 * [binary heap](https://github.com/sergejusb/algorithms/blob/master/data-structures/binaryHeap.js)
+* [max priority queue](https://github.com/sergejusb/algorithms/blob/master/data-structures/maxPriorityQueue.js)
 
 Sorting algorithms
 * [selection sort](https://github.com/sergejusb/algorithms/blob/master/sorting/selectionSort.js)
