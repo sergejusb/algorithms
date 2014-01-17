@@ -119,6 +119,23 @@ var BinarySearchTreeTestRunner = (function() {
                 });
             });
 
+            describe("range()", function() {
+                it("returns ['h','l','m','p','r','s'] when range is ['f'..'t']", function() {
+                    tree.insert('s', 's');
+                    tree.insert('e', 'e');
+                    tree.insert('x', 'x');
+                    tree.insert('a', 'a');
+                    tree.insert('r', 'r');
+                    tree.insert('c', 'c');
+                    tree.insert('h', 'h');
+                    tree.insert('m', 'm');
+                    tree.insert('l', 'l');
+                    tree.insert('p', 'p');
+
+                    assertMany(['h','l','m','p','r','s'], tree.range('f', 't'));
+                });
+            });
+
             describe("traversePreOrder()", function() {
                 it("can correctly traverse binary search tree pre-order", function() {
                     tree.insert('f', 'f');

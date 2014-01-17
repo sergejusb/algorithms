@@ -122,6 +122,30 @@ var BinarySearchTree = (function() {
         return current;
     };
 
+    BinarySearchTree.prototype.range = function(min, max, current, nodes) {
+        if (current === undefined && nodes === undefined) {
+            return this.range(min, max, this.root, []);
+        }
+
+        if (current === null) {
+            return;
+        }
+
+        if (current.key > min) {
+            this.range(min, max, current.left, nodes);
+        }
+
+        if (min <= current.key && current.key <= max) {
+            nodes.push(current.key);
+        }
+
+        if (current.key < max) {
+            this.range(min, max, current.right, nodes);
+        }
+
+        return nodes;
+    };
+
     BinarySearchTree.prototype.traversePreOrder = function(nodes, current) {
         if (nodes === undefined && current === undefined) {
             return this.traversePreOrder([], this.root);
