@@ -1,4 +1,5 @@
 function heapSort(numbers) {
+    // add null to the start to use 1-based indexing
     var count = numbers.length;
     numbers.unshift(null);
     
