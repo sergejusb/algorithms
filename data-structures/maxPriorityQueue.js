@@ -1,10 +1,10 @@
-var Key = (function() {
-    function Key(value, priority) {
+var Item = (function() {
+    function Item(value, priority) {
         this.value = value;
         this.priority = priority;
     }
 
-    return Key;
+    return Item;
 })();
 
 var MaxPriorityQueue = (function() {
@@ -14,7 +14,7 @@ var MaxPriorityQueue = (function() {
     }
 
     MaxPriorityQueue.prototype.insert = function(value, priority) {
-        this.items.push(new Key(value, priority));
+        this.items.push(new Item(value, priority));
         this.count++;
         
         /* ensure binary heap invariant */
@@ -64,8 +64,8 @@ var MaxPriorityQueue = (function() {
         return item.value;
     };
 
-    MaxPriorityQueue.prototype.isEmpty = function() {
-        return this.count === 0;
+    MaxPriorityQueue.prototype.length = function() {
+        return this.count;
     };
 
     return MaxPriorityQueue;

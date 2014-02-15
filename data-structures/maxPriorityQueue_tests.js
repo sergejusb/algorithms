@@ -87,26 +87,26 @@ var MaxPriorityQueueTestRunner = (function () {
                     maxPriorityQueue.insert('a', 0);
                     maxPriorityQueue.findMax();
 
-                    assert.equal(false, maxPriorityQueue.isEmpty());
+                    assert.equal(1, maxPriorityQueue.length());
                 });
             });
 
-            describe("isEmpty()", function() {
-                it("is true for newly created priority queue", function() {
-                    assert.equal(true, maxPriorityQueue.isEmpty());
+            describe("length()", function() {
+                it("is 0 for newly created priority queue", function() {
+                    assert.equal(0, maxPriorityQueue.length());
                 });
 
-                it("is false when single item inserted into empty priority queue", function() {
+                it("is 1 when single item inserted into empty priority queue", function() {
                     maxPriorityQueue.insert('a', 0);
 
-                    assert.equal(false, maxPriorityQueue.isEmpty());
+                    assert.equal(1, maxPriorityQueue.length());
                 });
 
-                it("is true when single item inserted into empty priority queue and then removed", function() {
+                it("is 0 when single item inserted into empty priority queue and then removed", function() {
                     maxPriorityQueue.insert('a', 0);
                     maxPriorityQueue.deleteMax();
 
-                    assert.equal(true, maxPriorityQueue.isEmpty());
+                    assert.equal(0, maxPriorityQueue.length());
                 });
             });
         });
