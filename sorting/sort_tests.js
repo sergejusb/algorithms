@@ -5,6 +5,7 @@ var shellSort = require('./shellSort.js');
 var mergeSort = require('./mergeSort.js');
 var quickSort = require('./quickSort.js');
 var quickSort3 = require('./quickSort3.js');
+var heapSort = require('./heapSort.js');
 
 var SortTestRunner = (function() {
     function SortTestRunner() {
@@ -63,3 +64,4 @@ testRunner.runTests(shellSort);
 testRunner.runTests(mergeSort);
 testRunner.runTests(quickSort);
 testRunner.runTests(quickSort3);
+testRunner.runTests(heapSort);
