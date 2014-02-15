@@ -22,3 +22,4 @@ Sorting algorithms
 * [merge sort](https://github.com/sergejusb/algorithms/blob/master/sorting/mergeSort.js) ([tests](https://github.com/sergejusb/algorithms/blob/master/sorting/sort_tests.js))
 * [quick sort](https://github.com/sergejusb/algorithms/blob/master/sorting/quickSort.js) ([tests](https://github.com/sergejusb/algorithms/blob/master/sorting/sort_tests.js))
 * [quick sort (3-way partition)](https://github.com/sergejusb/algorithms/blob/master/sorting/quickSort3.js) ([tests](https://github.com/sergejusb/algorithms/blob/master/sorting/sort_tests.js))
+* [heap sort](https://github.com/sergejusb/algorithms/blob/master/sorting/heapSort.js) ([tests](https://github.com/sergejusb/algorithms/blob/master/sorting/sort_tests.js))
